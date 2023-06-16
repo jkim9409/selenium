@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 @SpringBootApplication
 public class SeleniumApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(SeleniumApplication.class, args);
 		System.setProperty("webdriver.chrome.drive", "C:\\Users\\ntuple\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -45,8 +45,11 @@ public class SeleniumApplication {
 		//If the error message matches what is expected, do the next action.s
 		driver.findElement(By.linkText("Forgot your password?")).click();
 
-		//Xpath practice
+		//wait a little for page to render completely
+		Thread.sleep(1000);
 
+
+		//Xpath practice
 		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Junho");
 
 		//		Following two lines will do the same
@@ -73,7 +76,8 @@ public class SeleniumApplication {
 
 		driver.findElement(By.cssSelector("button.go-to-login-btn")).click();
 
-
+		//wait a little for page to render completely
+		Thread.sleep(1000);
 
 		driver.findElement(By.id("inputUsername")).sendKeys("Junho");
 		driver.findElement(By.name("inputPassword")).sendKeys(password);
