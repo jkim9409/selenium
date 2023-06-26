@@ -81,7 +81,7 @@ public class SeleniumApplication {
 
 		driver.findElement(By.id("inputUsername")).sendKeys("Junho");
 		driver.findElement(By.name("inputPassword")).sendKeys(password);
-		driver.findElement(By.name("chkboxOne")).click();
+		driver.findElement(By.cssSelector("button.signInBtn")).click();
 	}
 
 	private static String extractPassword(String message) {
